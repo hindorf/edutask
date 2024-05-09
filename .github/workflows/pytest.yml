@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run:
           python -m pip install --upgrade pip
-          pip install -r requirments.txt
+          pip install
       - name: Unit test
         run:
           python -m pytest -m unit
