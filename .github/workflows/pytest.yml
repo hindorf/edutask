@@ -24,8 +24,7 @@ jobs:
         run:
           python -m pip install --upgrade pip
           pip install install pytest
-      - name: Move to the right directory
-        run: cd backend/test/unit
-      - name: Unit test
-        run: pytest test_usercontroller.py
       
+                
+      - name: Unit test
+        run: pytest -k test_usercontroller backend/test/unit
