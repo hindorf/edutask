@@ -25,6 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install install pytest
       - name: Unit test
-        run:
-          python -m pytest backend/test/unit/test_usercontroller.py
+        run: |
+          pytest backend/test/unit/test_usercontroller.py
       
