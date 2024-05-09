@@ -27,6 +27,7 @@ jobs:
       
                 
       - name: Unit test
-        run: |
-           python -m pytest --cov-report=term --cov=src backend/test/unit/test_usercontroller.py
+        run: 
+          python -m pytest backend/test/unit/test_usercontroller.py
+           
 
