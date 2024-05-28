@@ -45,3 +45,18 @@ def test_get_user_by_email_invalid_email(user_controller):
 
     with patch('re.fullmatch', return_value=False), pytest.raises(ValueError):
         controller.get_user_by_email('jane.doe')
+
+# Empty Email
+def test_get_user_by_email_empty_email(user_controller):
+    controller, dao_mock = user_controller
+
+    with patch('re.fullmatch', return_value=False), pytest.raises(ValueError):
+        controller.get_user_by_email('')
+
+# Simulate Database Error
+def test_get_user_by_email_db_error(user_controller):
+    controller, dao_mock = user_controller
+    dao_mock.find.side_effect = Exception('Database error')
+
+    with patch('re.fullmatch', return_value=True), pytest.raises(Exception):
+        controller.get_user_by_email('jane.doe@gmail.com')
